@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+#script displays current working directory
+
+
+for file in ./*; do
+	basename "$file"
+done
