@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+#write bash script that prints to infinity 
+
+
+trap 'echo "I am in invincible!!!"' 15
+
+while true; do
+
+    echo "To infinity and beyond"
+
+    sleep 2
+
+done
