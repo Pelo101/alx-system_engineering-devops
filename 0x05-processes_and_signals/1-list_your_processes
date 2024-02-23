@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+#script that lists all PID processes.
+
+ps aux  
