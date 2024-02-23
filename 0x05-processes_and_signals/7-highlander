@@ -2,7 +2,7 @@
 #write bash script that prints to infinity 
 
 
-trap 'echo "I am in invincible!!!"' 15
+trap 'echo "I am in invincible!!!"; exit' SIGTERM
 
 while true; do
 
