@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+#script that kills to ./4-infinity and beyond
+
+
+kill "$(ps -x | pgrep -f beyond)"
