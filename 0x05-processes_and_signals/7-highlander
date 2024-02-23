@@ -2,9 +2,10 @@
 #write bash script that prints to infinity 
 
 
-trap 'echo "I am in invincible!!!"; exit' SIGTERM
+trap echo '"I am in invincible!!!"' exit 15
 
-while true; do
+while true; 
+do
 
     echo "To infinity and beyond"
 
