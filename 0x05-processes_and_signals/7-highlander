@@ -1,14 +1,18 @@
 #!/usr/bin/env bash
-#write bash script that prints to infinity 
+#script that prints a string to infinity 
 
+handle_sigterm()
+{
+   echo "I am invincible!!!"
+   exit 0
 
-trap echo '"I am in invincible!!!"' exit 15
+}
 
-while true; 
+trap 'handle_sigterm' SIGTERM
+
+while true
 do
-
     echo "To infinity and beyond"
-
     sleep 2
-
+    
 done
