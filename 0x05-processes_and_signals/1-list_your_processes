@@ -1,6 +1,5 @@
 #!/usr/bin/env bash
 #script that lists all PID processes.
-# shellcheck disable=SC2009
 
-ps -fC bash
 
+ps aux
