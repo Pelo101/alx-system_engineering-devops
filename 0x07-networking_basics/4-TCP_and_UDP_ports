@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+#Script that displays listening sockets and process ID
+netstat -lp
