@@ -1,0 +1,29 @@
+#!/usr/bin/env bash
+# Configure your Nginx server so that /redirect_me is redirecting to another path
+
+apt update
+apt install -y nginx
+redirect_url="https://www.youtube.com/watch?v=QH2-TGUlwu4/new-page;"
+
+cat <<EOF > /etc/nginx/sites-available/redirect_me
+
+server {
+	listen 80 default_server;
+	listen [::]:80 default_server;
+	server_name_;
+
+	location /redirect_me {
+	return 301 $redirect_url;
+	}
+	
+	location / {
+	root /var/www/html;
+        index index.html;
+	}
+
+}
+
+
+EOF
+
+sudo service nginx start
