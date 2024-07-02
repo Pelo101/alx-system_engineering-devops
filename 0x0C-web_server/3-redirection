@@ -3,7 +3,7 @@
 
 apt update
 apt install -y nginx
-redirect_url="https://www.youtube.com/watch?v=QH2-TGUlwu4/new-page;"
+redirect_url="https://www.youtube.com/watch?v=QH2-TGUlwu4"
 
 cat <<EOF > /etc/nginx/sites-available/redirect_me
 
@@ -25,5 +25,7 @@ server {
 
 
 EOF
+rm -f /etc/nginx/sites-enabled/default
+ln -s /etc/nginx/sites-available/redirect_me /etc/nginx/sites-enabled/redirect_me
+service nginx start
 
-sudo service nginx start
