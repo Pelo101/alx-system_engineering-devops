@@ -1,12 +1,24 @@
 #!/usr/bin/env bash
-# Configure your nginx server so that /redirect_me is redirecting to another path
-
-set -e 
+# Configure your nginx server so that redirect_me is redirecting to another
 
 apt update
 apt install -y nginx
-sudo ufw allow 'Nginx Full'
-sudo ufw  --force enable
-echo 'Hello World!' | sudo tee /var/www/html/index.nginx-debian.html > /dev/null
-sed -i '/server_name_;/a rewrite ^/redirect_me https://www.youtube.com/watch?v=QH2-TGUlwu4 permanent;' /etc/nginx/sites-available/default
-sudo service nginx restart
+
+echo "Hello World" | sudo tee /var/www/html/index.html
+
+sudo bash -c 'cat > /etc/nginx/sites-available/redirect_me' << EOF
+server {
+	listen 80;
+	listen [::]:80;
+	server_name_;
+	
+	root/var/www/html;
+	index index.html
+
+	location/redirect_me {
+	   rewrite ^/(.*)$https://www.youtube.com/watch?v=QH2-TGUlwu4 permanent; 
+	}
+}
+EOF
+sudo nginx -t
+sudo nginx -s reload
