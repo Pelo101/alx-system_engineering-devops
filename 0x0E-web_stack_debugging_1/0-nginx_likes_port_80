@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
-# script thaat debugs nginx
+# script that debugs nginx
 
-sudo sed -i 's/8080/80/g' /etc/nginx/sites-enabled/default
-sudo service nginx reload
-sudo nginx -t
+sed -i 's/8080/80/g' /etc/nginx/sites-enabled/default
+service nginx reload
+nginx -t 
