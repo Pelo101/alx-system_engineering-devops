@@ -4,3 +4,9 @@
 sed -i 's/8080/80/g' /etc/nginx/sites-enabled/default
 service nginx restart
 curl -s -o /dev/null -w "%{http_code}\n" http://localhost
+
+if [ "$status" -eq 200 ]; then
+    echo "2"
+else
+    echo "0"
+fi
