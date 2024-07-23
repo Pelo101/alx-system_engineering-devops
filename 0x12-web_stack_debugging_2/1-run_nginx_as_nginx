@@ -4,7 +4,8 @@
 apt-get update
 apt-get install -y nginx
 
-sed -i 's/^user .*;/user nginx;/' /etc/nginx/nginx.conf
-sed -i 's/80/ 8080/g' /etc/nginx/sites-available/default
+sudo sed -i 's/^user .*;/user nginx;/' /etc/nginx/nginx.conf
+sudo sed -i 's/80/ 8080/g' /etc/nginx/sites-available/default
 
-nginx -t&&service nginx restart
+nginx -t
+service nginx restart
