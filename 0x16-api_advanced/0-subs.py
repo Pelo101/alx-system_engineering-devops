@@ -5,8 +5,8 @@
 def number_of_subscribers(subreddit):
     """ Function returns total count of subscribers """
     import requests
-    base_url = f'https://www.reddit.com/r/{subreddit}/about.json'
-    headers = {'User-Agent': 'RedditUserAgent/1.0'}
+    base_url = 'https://www.reddit.com/r/{}/about.json'.format(subreddit)
+    headers = {'User-Agent': 'MyRedditUserAgent'}
 
     try:
         response = requests.get(
@@ -19,7 +19,7 @@ def number_of_subscribers(subreddit):
             return 0
 
         data = response.json()
-        return data.get("data", {}).get("subscribers", 0)
+        return data.get('data').get('subscribers')
 
     except requests.exceptions.RequestException:
         return 0
